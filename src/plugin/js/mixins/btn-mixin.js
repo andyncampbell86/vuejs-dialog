@@ -27,10 +27,10 @@ export default {
             return !this.isHardConfirm && (this.options.reverse === false)
         },
         leftBtnText(){
-            return this.options.reverse ? this.options.okText : this.options.cancelText
+					return this.options.reverse ? this.options.cancelText : this.options.okText
         },
         rightBtnText(){
-            return this.options.reverse ? this.options.cancelText : this.options.okText
+					return this.options.reverse ? this.options.okText : this.options.cancelText
         }
     }
 }
