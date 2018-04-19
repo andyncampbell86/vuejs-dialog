@@ -166,7 +166,7 @@
             cancel(){
                 if (this.loading === true)
 										return
-								this.options.promiseResolver(false)
+								this.options.promiseRejecter(false)
                 this.close()
             },
             switchLoadingState(loading = null){
