@@ -9,14 +9,14 @@
             <div class="modal-card" @click="closeAtOutsideClick">
               <div @click.stop>
 								<template v-if="messageHasTitle">
-									<div class="modal-class-head">
-										<h6 v-if="options.html" class="dg-title" v-html="messageTitle"></h6>
-										<h6 v-else class="dg-title">{{ messageTitle }}</h6>
+									<div class="modal-card-head">
+										<h6 v-if="options.html" v-html="messageTitle"></h6>
+										<h6 v-else >{{ messageTitle }}</h6>
 									</div>
 								</template>
 								<div class="modal-card-body">
-										<div v-if="options.html" class="dg-content" v-html="messageBody"></div>
-										<div v-else class="dg-content">{{ messageBody }}</div>
+										<div v-if="options.html" v-html="messageBody"></div>
+										<div v-else>{{ messageBody }}</div>
 
 										<form v-if="isHardConfirm || isPrompt"
 													class="dg-form"
@@ -31,7 +31,7 @@
 																style="width: 100%;margin-top: 10px;
 												padding: 5px 15px; font-size: 16px;border-radius: 4px; border: 2px solid #eee"/>
 										</form>
-											<div class="dg-content-footer">
+											<div>
 												<div class="field is-grouped">
 													<p class="control">
 														<a class="button" 
