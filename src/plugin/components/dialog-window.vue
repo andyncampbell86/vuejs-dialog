@@ -1,23 +1,23 @@
 <template>
-    <div>
-        <transition name="dg-backdrop" appear @after-leave="animationEnded('backdrop')">
-            <div v-if="show" class="dg-backdrop" >
+    <div :class="['modal', {'is-active': show}]">
+        <transition name="modal-background" appear @after-leave="animationEnded('backdrop')">
+            <div v-if="show" class="modal-background" >
             </div>
         </transition>
 
         <transition :name="animation" @after-leave="animationEnded('content')" appear>
-            <div v-if="show" :class="['dg-container', {'dg-container--has-input': (isHardConfirm || isPrompt)}]" @click="closeAtOutsideClick" >
+            <div class="modal-card" @click="closeAtOutsideClick">
                 <div class="dg-content-cont dg-content-cont--floating">
                     <div class="dg-main-content" @click.stop>
 
                         <div :class="['dg-content-body', {'dg-content-body--has-title': messageHasTitle}]">
                             <template v-if="messageHasTitle">
                                 <h6 v-if="options.html" class="dg-title" v-html="messageTitle"></h6>
-                                <h6 v-else="" class="dg-title">{{ messageTitle }}</h6>
+                                <h6 v-else class="dg-title">{{ messageTitle }}</h6>
                             </template>
 
                             <div v-if="options.html" class="dg-content" v-html="messageBody"></div>
-                            <div v-else="" class="dg-content">{{ messageBody }}</div>
+                            <div v-else class="dg-content">{{ messageBody }}</div>
 
                             <form v-if="isHardConfirm || isPrompt"
                                   class="dg-form"
@@ -39,13 +39,13 @@
                             <button @click="clickLeftBtn()" :is="leftBtnComponent" :loading="loading"
                                        :enabled="leftBtnEnabled" :options="options" :focus="leftBtnFocus">
                                 <span v-if="options.html" v-html="leftBtnText"></span>
-                                <span v-else="">{{ leftBtnText }}</span>
+                                <span v-else>{{ leftBtnText }}</span>
                             </button>
 
                             <button :is="rightBtnComponent" @click="clickRightBtn()" :loading="loading"
                                        :enabled="rightBtnEnabled" :options="options" :focus="rightBtnFocus">
                                 <span v-if="options.html" v-html="rightBtnText"></span>
-                                <span v-else="">{{ rightBtnText }}</span>
+                                <span v-else>{{ rightBtnText }}</span>
                             </button>
 
                             <div class="dg-clear"></div>
