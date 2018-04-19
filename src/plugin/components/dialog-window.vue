@@ -165,7 +165,8 @@
             },
             cancel(){
                 if (this.loading === true)
-                    return
+										return
+								this.options.promiseResolver(false)
                 this.close()
             },
             switchLoadingState(loading = null){
