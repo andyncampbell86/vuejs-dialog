@@ -121,10 +121,10 @@
                 return (this.options.window === DIALOG_TYPES.PROMPT)
             },
             leftBtnComponent(){
-                return (this.options.reverse === false) ? 'cancel-btn' : 'ok-btn'
+                return (this.options.reverse === true) ? 'cancel-btn' : 'ok-btn'
             },
             rightBtnComponent(){
-                return (this.options.reverse === true) ? 'cancel-btn' : 'ok-btn'
+                return (this.options.reverse === false) ? 'cancel-btn' : 'ok-btn'
             },
             hardConfirmHelpText() {
                 return this.options.verificationHelp
@@ -143,10 +143,10 @@
               }
             },
             clickRightBtn(){
-                this.options.reverse ? this.cancel() : this.proceed()
+							this.options.reverse ? this.proceed() : this.cancel()
             },
             clickLeftBtn(){
-                this.options.reverse ? this.proceed() : this.cancel()
+              this.options.reverse ? this.cancel() : this.proceed()
             },
             submitDialogForm(){
                 this.okBtnDisabled || this.proceed()
