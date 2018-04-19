@@ -35,20 +35,35 @@
                         </div>
 
                         <div class="dg-content-footer">
+													<div class="field is-grouped">
+														<p class="control">
+															<a class="button" 
+																 :is="leftBtnComponent" 
+																 :loading="loading"
+																 :enabled="leftBtnEnabled" 
+																 :options="options" 
+																 :focus="leftBtnFocus"
+																 @click="clickLeftBtn()"> 
+																	<span v-if="options.html" v-html="leftBtnText"></span>
+																	<span v-else>{{ leftBtnText }}</span>
+															</a>
+														</p>
 
-                            <button @click="clickLeftBtn()" :is="leftBtnComponent" :loading="loading"
-                                       :enabled="leftBtnEnabled" :options="options" :focus="leftBtnFocus">
-                                <span v-if="options.html" v-html="leftBtnText"></span>
-                                <span v-else>{{ leftBtnText }}</span>
-                            </button>
+														<p class="control">
+															<a class="button" 
+																 :is="rightBtnComponent" 
+																 :loading="loading"
+																 :enabled="rightBtnEnabled" 
+																 :options="options" 
+																 :focus="rightBtnFocus"
+																 @click="clickRightBtn()">
+																	<span v-if="options.html" v-html="rightBtnText"></span>
+																	<span v-else>{{ rightBtnText }}</span>
+															</a>
+														</p>
+													</div>
 
-                            <button :is="rightBtnComponent" @click="clickRightBtn()" :loading="loading"
-                                       :enabled="rightBtnEnabled" :options="options" :focus="rightBtnFocus">
-                                <span v-if="options.html" v-html="rightBtnText"></span>
-                                <span v-else>{{ rightBtnText }}</span>
-                            </button>
-
-                            <div class="dg-clear"></div>
+                          <div class="dg-clear"></div>
                         </div>
                     </div>
                 </div>
