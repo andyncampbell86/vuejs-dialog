@@ -15,16 +15,16 @@ export default {
                 && (this.input !== this.options.verification)
         },
         leftBtnEnabled(){
-            return (this.cancelBtnDisabled === false) || (this.options.reverse === true)
-        },
-        rightBtnEnabled(){
             return (this.cancelBtnDisabled === false) || (this.options.reverse === false)
         },
+        rightBtnEnabled(){
+            return (this.cancelBtnDisabled === false) || (this.options.reverse === true)
+        },
         leftBtnFocus(){
-            return !this.isHardConfirm && (this.options.reverse === true)
+            return !this.isHardConfirm && (this.options.reverse === false)
         },
         rightBtnFocus(){
-            return !this.isHardConfirm && (this.options.reverse === false)
+            return !this.isHardConfirm && (this.options.reverse === true)
         },
         leftBtnText(){
 					return this.options.reverse ? this.options.cancelText : this.options.okText
